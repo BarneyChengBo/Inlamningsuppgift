@@ -54,7 +54,6 @@ public class MorseCodeConverter {
                 String charStrM = codeDictionaryEtoM.get(singleChar);
                 saveList.add(charStrM);
             }
-
         }
 
         return String.join(" ", saveList);
