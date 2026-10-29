@@ -4,7 +4,7 @@ import java.util.HashMap;
 public class MorseCodeConverter {
 
     private HashMap<String, String> codeDictionaryEtoM = new HashMap<>();
-    //HashMap<String, String> codeDictionaryMtoE = new HashMap<>();
+    private HashMap<String, String> codeDictionaryMtoE = new HashMap<>();
 
     public MorseCodeConverter() {
         codeDictionaryEtoM.put("A", ".-");
@@ -34,6 +34,14 @@ public class MorseCodeConverter {
         codeDictionaryEtoM.put("Y", "-.--");
         codeDictionaryEtoM.put("Z", "--..");
         codeDictionaryEtoM.put(" ", "");
+
+        char letter = 'A';
+
+        for (int i = 0; i < 26; i++) {
+            String letterStr = String.valueOf((char) (letter + i));
+            codeDictionaryMtoE.put(codeDictionaryEtoM.get(letterStr), letterStr);
+        }
+
     }
 
     public String getConverterEtoM(String content) {
@@ -41,15 +49,27 @@ public class MorseCodeConverter {
         ArrayList<String> saveList = new ArrayList<String>();
 
         for (int i = 0; i < contentCharArray.length; i++) {
-            if (contentCharArray[i] != ' '){
-                String singelChar = String.valueOf(contentCharArray[i]);
-                String charStr = codeDictionaryEtoM.get(singelChar);
-                saveList.add(charStr);
+            if (contentCharArray[i] != ' ') {
+                String singleChar = String.valueOf(contentCharArray[i]);
+                String charStrM = codeDictionaryEtoM.get(singleChar);
+                saveList.add(charStrM);
             }
 
         }
 
         return String.join(" ", saveList);
+    }
+
+    public String getConverterMtoE(String content) {
+        String[] morseWords = content.split(" ");
+        ArrayList<String> saveList = new ArrayList<String>();
+
+        for (int i = 0; i < morseWords.length; i++) {
+            String charStrE = codeDictionaryMtoE.get(morseWords[i]);
+            saveList.add(charStrE);
+        }
+
+        return String.join("", saveList);
     }
 
 
