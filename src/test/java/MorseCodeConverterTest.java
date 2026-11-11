@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class MorseCodeConverterTest {
 
     @Test
-    void convertSingleLetterMtoE() {
+    void convertSingleLetterEtoM() {
         MorseCodeConverter morseCodeConverter = new MorseCodeConverter();
         String expectedCode =  ".-";
         String actualCode = morseCodeConverter.getConverterEtoM("A");
