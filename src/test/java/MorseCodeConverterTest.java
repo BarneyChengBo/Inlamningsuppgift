@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class MorseCodeConverterTest {
 
     @Test
-    void convertSingleLetterMtoE() {
+    void convertSingleLetterEtoM() {
         MorseCodeConverter morseCodeConverter = new MorseCodeConverter();
         String expectedCode =  ".-";
         String actualCode = morseCodeConverter.getConverterEtoM("A");
@@ -13,7 +13,7 @@ public class MorseCodeConverterTest {
     }
 
     @Test
-    void convertSingleLetterEtoM() {
+    void convertSingleLetterMtoE() {
         MorseCodeConverter morseCodeConverter = new MorseCodeConverter();
         String expectedCode =  "A";
         String actualCode = morseCodeConverter.getConverterMtoE(".-");
@@ -21,7 +21,7 @@ public class MorseCodeConverterTest {
     }
 
     @Test
-    void convertSingleWordMtoE() {
+    void convertSingleWordEtoM() {
         MorseCodeConverter morseCodeConverter = new MorseCodeConverter();
         String expectedCode =  "-- .. -. . -.-. .-. .- ..-. -";
         String actualCode = morseCodeConverter.getConverterEtoM("MINECRAFT");
@@ -29,7 +29,7 @@ public class MorseCodeConverterTest {
     }
 
     @Test
-    void convertSingleWordEtoM() {
+    void convertSingleWordMtoE() {
         MorseCodeConverter morseCodeConverter = new MorseCodeConverter();
         String expectedCode =  "JELLYFISH";
         String actualCode = morseCodeConverter.getConverterMtoE(".--- . .-.. .-.. -.-- ..-. .. ... ....");
@@ -37,7 +37,7 @@ public class MorseCodeConverterTest {
     }
 
     @Test
-    void convertSpaceDividedWordsMtoE() {
+    void convertSpaceDividedWordsEtoM() {
         MorseCodeConverter morseCodeConverter = new MorseCodeConverter();
         String expectedCode =  ".... . - ..- .-. -. ... --- ..-. ..-. - .... . .-.. .. --. .... -";
         String actualCode = morseCodeConverter.getConverterEtoM("HE TURNS OFF THE LIGHT");
@@ -45,7 +45,7 @@ public class MorseCodeConverterTest {
     }
 
     @Test
-    void convertSpaceDividedWordsEtoM() {
+    void convertSpaceDividedWordsMtoE() {
         MorseCodeConverter morseCodeConverter = new MorseCodeConverter();
         String expectedCode =  "YOUCANSEEEVERYTHING";
         String actualCode = morseCodeConverter.getConverterMtoE("-.-- --- ..- -.-. .- -. ... . . . ...- . .-. -.-- - .... .. -. --.");
