@@ -3,72 +3,70 @@ import java.util.HashMap;
 
 public class MorseCodeConverter {
 
-    private HashMap<String, String> codeDictionaryEtoM = new HashMap<>();
-    private HashMap<String, String> codeDictionaryMtoE = new HashMap<>();
+    private HashMap<String, String> codeDictionary = new HashMap<>();
+    
 
     public MorseCodeConverter() {
-        codeDictionaryEtoM.put("A", ".-");
-        codeDictionaryEtoM.put("B", "-...");
-        codeDictionaryEtoM.put("C", "-.-.");
-        codeDictionaryEtoM.put("D", "-..");
-        codeDictionaryEtoM.put("E", ".");
-        codeDictionaryEtoM.put("F", "..-.");
-        codeDictionaryEtoM.put("G", "--.");
-        codeDictionaryEtoM.put("H", "....");
-        codeDictionaryEtoM.put("I", "..");
-        codeDictionaryEtoM.put("J", ".---");
-        codeDictionaryEtoM.put("K", "-.-");
-        codeDictionaryEtoM.put("L", ".-..");
-        codeDictionaryEtoM.put("M", "--");
-        codeDictionaryEtoM.put("N", "-.");
-        codeDictionaryEtoM.put("O", "---");
-        codeDictionaryEtoM.put("P", ".--.");
-        codeDictionaryEtoM.put("Q", "--.-");
-        codeDictionaryEtoM.put("R", ".-.");
-        codeDictionaryEtoM.put("S", "...");
-        codeDictionaryEtoM.put("T", "-");
-        codeDictionaryEtoM.put("U", "..-");
-        codeDictionaryEtoM.put("V", "...-");
-        codeDictionaryEtoM.put("W", ".--");
-        codeDictionaryEtoM.put("X", "-..-");
-        codeDictionaryEtoM.put("Y", "-.--");
-        codeDictionaryEtoM.put("Z", "--..");
-        codeDictionaryEtoM.put(" ", "");
+        codeDictionary.put("A", ".-");
+        codeDictionary.put("B", "-...");
+        codeDictionary.put("C", "-.-.");
+        codeDictionary.put("D", "-..");
+        codeDictionary.put("E", ".");
+        codeDictionary.put("F", "..-.");
+        codeDictionary.put("G", "--.");
+        codeDictionary.put("H", "....");
+        codeDictionary.put("I", "..");
+        codeDictionary.put("J", ".---");
+        codeDictionary.put("K", "-.-");
+        codeDictionary.put("L", ".-..");
+        codeDictionary.put("M", "--");
+        codeDictionary.put("N", "-.");
+        codeDictionary.put("O", "---");
+        codeDictionary.put("P", ".--.");
+        codeDictionary.put("Q", "--.-");
+        codeDictionary.put("R", ".-.");
+        codeDictionary.put("S", "...");
+        codeDictionary.put("T", "-");
+        codeDictionary.put("U", "..-");
+        codeDictionary.put("V", "...-");
+        codeDictionary.put("W", ".--");
+        codeDictionary.put("X", "-..-");
+        codeDictionary.put("Y", "-.--");
+        codeDictionary.put("Z", "--..");
+        codeDictionary.put(" ", "");
 
         char letter = 'A';
 
         for (int i = 0; i < 26; i++) {
             String letterStr = String.valueOf((char) (letter + i));
-            codeDictionaryMtoE.put(codeDictionaryEtoM.get(letterStr), letterStr);
+            codeDictionary.put(codeDictionary.get(letterStr), letterStr);
         }
 
     }
 
     public String getConverterEtoM(String content) {
         char[] contentCharArray = content.toCharArray();
-        ArrayList<String> saveList = new ArrayList<String>();
+        String myText = "";
 
         for (int i = 0; i < contentCharArray.length; i++) {
             if (contentCharArray[i] != ' ') {
-                String singleChar = String.valueOf(contentCharArray[i]);
-                String charStrM = codeDictionaryEtoM.get(singleChar);
-                saveList.add(charStrM);
+                myText += codeDictionary.get(String.valueOf(contentCharArray[i])) + " ";
             }
+
         }
 
-        return String.join(" ", saveList);
+        return myText.trim();
     }
 
     public String getConverterMtoE(String content) {
         String[] morseWords = content.split(" ");
-        ArrayList<String> saveList = new ArrayList<String>();
+        String myText = "";
 
         for (int i = 0; i < morseWords.length; i++) {
-            String charStrE = codeDictionaryMtoE.get(morseWords[i]);
-            saveList.add(charStrE);
+            myText += codeDictionary.get(morseWords[i]) ;
         }
 
-        return String.join("", saveList);
+        return myText.trim();
     }
 
 
