@@ -1,10 +1,9 @@
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class MorseCodeConverter {
 
     private HashMap<String, String> codeDictionary = new HashMap<>();
-    
+
 
     public MorseCodeConverter() {
         codeDictionary.put("A", ".-");
@@ -52,7 +51,6 @@ public class MorseCodeConverter {
             if (contentCharArray[i] != ' ') {
                 myText += codeDictionary.get(String.valueOf(contentCharArray[i])) + " ";
             }
-
         }
 
         return myText.trim();
@@ -63,7 +61,7 @@ public class MorseCodeConverter {
         String myText = "";
 
         for (int i = 0; i < morseWords.length; i++) {
-            myText += codeDictionary.get(morseWords[i]) ;
+            myText += codeDictionary.get(morseWords[i]);
         }
 
         return myText.trim();
